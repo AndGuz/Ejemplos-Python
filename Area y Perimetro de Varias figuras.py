@@ -56,11 +56,11 @@ def menu():
 
         tri = Triangulo(l1,l2,l3,b,a)
 
-        print(f"El perimetro es: {tri.calc_perim_tri()} ")
-        print(f"El area de ese triangulo es: {tri.calc_area_tri()} ")
+        print(f"El perimetro es: {tri.calc_perim_tri()}. ")
+        print(f"El area de ese triangulo es: {tri.calc_area_tri()}. ")
         print("Retornando al menu...")
         time.sleep(2)
-        #Debo eliminar las variables ya que puedo introducir a un memory escape
+        #Debo eliminar las variables ya que puedo sobreescribir e introducir errores.
         del tri,l1,l2,l3,b,a
         menu()
 
