@@ -18,12 +18,12 @@ class Triangulo:
         self.lado_C = lado_C
         self.base = base
         self.altura = altura
+    
     # sumar sus lados esta bien para cualquier triangulo
-
     def calc_perim_tri(self) -> float:
         return float(self.lado_A+self.lado_B+self.lado_C)
+    
     # el area es la base por la altura entre dos, se autoexplica
-
     def calc_area_tri(self) -> float:
         return float((self.base*self.altura)/2.0)
 
@@ -32,9 +32,11 @@ class Cuadrado:
     def __init__(self, lado) -> None:
         self.lado = lado
 
+    #Perimetro es igual al lado por 4 veces,nada ma
     def calc_perim_cuad(self) -> float:
         return(self.lado * 4.0)
 
+    #Area lado al cuadrado.
     def calc_area_cuad(self) -> float:
         return(self.lado ** 2.0)
 
@@ -49,6 +51,8 @@ class Circulo:
     def calc_area_cir(self) -> float:
         return(cmath.pi * self.radio**2.0)
 
+    def long_circ(self) -> float:
+        return((cmath.pi*2.0)*self.radio)
 
 def menu():
     print("""Bienvenido al calculador de area y perimetro de triangulos, cuadrados y circulos.""")
@@ -56,10 +60,12 @@ def menu():
 ¿Que desea hacer?
 1)Perimetro y Area de un triangulo.
 2-)Perimetro y Area de un Cuadrado.
-3-)Perimetro y Area de un Circulo.
+3-)Perimetro, Area, Longitud de circunferencia de un Circulo.
 4-)Salir... """))
 
     if op == 1:
+        print("Ha seleccionado: Perimetro y area de un triangulo.")
+
         l1 = int(input(
             "Inserte la medida del lado A, nótese que deben ser de la magnitud. EG: cm. "))
         l2 = int(input("Lado B: "))
@@ -78,6 +84,8 @@ def menu():
         menu()
 
     elif op == 2:
+        print("Ha seleccionado: Perimetro y area de un cuadrado.")
+
         l = int(input("Inserte la medida de un lado (calcula cuadrados perfectos): "))
 
         quad = Cuadrado(l)
@@ -90,12 +98,15 @@ def menu():
         del l, quad
         menu()
     elif op == 3:
+        print("Ha seleccionado: Perimetro, area y longitud de circunferencia de un circulo.")
+
         r = int(input("Inserte la medida del radio: "))
 
         cir = Circulo(r)
 
         print(f"El area es: {cir.calc_area_cir()}. ")
         print(f"El perimetro es: {cir.calc_perim_cir()}. ")
+        print(f"La longitud de la circunferencia es: {cir.long_circ()}. ")
         print("Retornando al menu...")
         time.sleep(2)
 
