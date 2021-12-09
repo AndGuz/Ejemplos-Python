@@ -25,3 +25,4 @@ Bienvenido al calculador de media geometrica. """)
 
 if __name__ == "__main__":
     main()
+    
