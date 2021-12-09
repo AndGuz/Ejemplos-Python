@@ -13,6 +13,7 @@ def geo_media(n1,n2,n3) -> float:
     return qrt((n1*n2*n3))
 
 def main() -> None:
+    limpiar()
     print("""
 Hola!
 Bienvenido al calculador de media geometrica. """)

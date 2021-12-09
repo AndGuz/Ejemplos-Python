@@ -52,11 +52,11 @@ class Circulo:
         return(cmath.pi * self.radio**2.0)
 
     def long_circ(self) -> float:
-        return((cmath.pi*2.0)*self.radio)
+        return(cmath.pi*(self.radio*2))
 
 def menu():
     print("""Bienvenido al calculador de area y perimetro de triangulos, cuadrados y circulos.""")
-    op = int(input("""
+    op = float(input("""
 ¿Que desea hacer?
 1)Perimetro y Area de un triangulo.
 2-)Perimetro y Area de un Cuadrado.
@@ -66,17 +66,17 @@ def menu():
     if op == 1:
         print("Ha seleccionado: Perimetro y area de un triangulo.")
 
-        l1 = int(input(
+        l1 = float(input(
             "Inserte la medida del lado A, nótese que deben ser de la magnitud. EG: cm. "))
-        l2 = int(input("Lado B: "))
-        l3 = int(input("Lado C: "))
-        b = int(input("Base: "))
-        a = int(input("Altura: "))
+        l2 = float(input("Lado B: "))
+        l3 = float(input("Lado C: "))
+        b = float(input("Base: "))
+        a = float(input("Altura: "))
 
         tri = Triangulo(l1, l2, l3, b, a)
 
-        print(f"El perimetro es: {tri.calc_perim_tri()}. ")
-        print(f"El area de ese triangulo es: {tri.calc_area_tri()}. ")
+        print(f"El perimetro es: {tri.calc_perim_tri().__round__(4)}")
+        print(f"El area de ese triangulo es: {tri.calc_area_tri().__round__(4)}")
         print("Retornando al menu...")
         time.sleep(2)
         # Debo eliminar las variables ya que puedo sobreescribir e introducir errores.
@@ -86,12 +86,12 @@ def menu():
     elif op == 2:
         print("Ha seleccionado: Perimetro y area de un cuadrado.")
 
-        l = int(input("Inserte la medida de un lado (calcula cuadrados perfectos): "))
+        l = float(input("Inserte la medida de un lado (calcula cuadrados perfectos): "))
 
         quad = Cuadrado(l)
 
-        print(f"El area es: {quad.calc_area_cuad()}. ")
-        print(f"El perimetro es: {quad.calc_perim_cuad()}. ")
+        print(f"El area es: {quad.calc_area_cuad().__round__(4)}")
+        print(f"El perimetro es: {quad.calc_perim_cuad().__round__(4)}")
         print("Retornando al menu...")
         time.sleep(2)
 
@@ -100,13 +100,13 @@ def menu():
     elif op == 3:
         print("Ha seleccionado: Perimetro, area y longitud de circunferencia de un circulo.")
 
-        r = int(input("Inserte la medida del radio: "))
+        r = float(input("Inserte la medida del radio: "))
 
         cir = Circulo(r)
 
-        print(f"El area es: {cir.calc_area_cir()}. ")
-        print(f"El perimetro es: {cir.calc_perim_cir()}. ")
-        print(f"La longitud de la circunferencia es: {cir.long_circ()}. ")
+        print(f"El area es: {cir.calc_area_cir().__round__(4)} ")
+        print(f"El perimetro es: {cir.calc_perim_cir().__round__(4)} ")
+        print(f"La longitud de la circunferencia es: {cir.long_circ().__round__(4)} ")
         print("Retornando al menu...")
         time.sleep(2)
 
